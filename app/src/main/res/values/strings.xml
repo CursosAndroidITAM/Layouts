@@ -7,8 +7,7 @@
     <string name="button">Botón</string>
     <string name="hint">Presiona para escribir</string>
     <string name="check_this">Aplica esta configuración</string>
-    <string-array
-        name="string_arrays">
+    <string-array name="string_arrays">
         <item>Texto 1</item>
         <item>Texto 2</item>
     </string-array>
@@ -23,5 +22,7 @@
     <string name="forgot_pw">Olvidé contraseña</string>
     <string name="forgot_user_name">Olvidé Nombre de Usuario</string>
     <string name="password">Contraseña</string>
+    <string name="title_activity_other">OtherActivity</string>
+    <string name="second_activity">Segunda Actividad</string>
 
 </resources>

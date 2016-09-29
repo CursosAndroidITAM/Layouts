@@ -15,19 +15,8 @@
         android:textSize="100dp" />
 
     <TextView
-        android:id="@+id/two"
-        android:layout_toRightOf="@id/one"
-        app:layout_widthPercent="50%"
-        app:layout_heightPercent="20%"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="2"
-        android:textColor="@android:color/white"
-        android:textSize="100dp" />
-
-    <TextView
         android:id="@+id/three"
-        android:layout_alignStart="@id/two"
+        android:layout_alignStart="@+id/two"
         android:layout_alignLeft="@id/two"
         android:layout_below="@id/two"
         app:layout_widthPercent="30%"
@@ -37,5 +26,18 @@
         android:text="3"
         android:textColor="@android:color/white"
         android:textSize="100dp" />
+
+    <TextView
+        android:id="@id/two"
+        android:layout_toRightOf="@id/one"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="20%"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="2"
+        android:textColor="@android:color/white"
+        android:textSize="100dp" />
+
+
 
 </android.support.percent.PercentRelativeLayout>
