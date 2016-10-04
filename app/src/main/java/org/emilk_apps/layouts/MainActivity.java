@@ -11,7 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static String MAINACTIVITY = "mainActivity";
     @BindView(R.id.activity_tv)
@@ -96,4 +96,15 @@ public class MainActivity extends AppCompatActivity {
         Log.i(MAINACTIVITY, "On Resume");
     }
 
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.activity_button){
+            showSecondActivity();
+        }
+    }
 }
