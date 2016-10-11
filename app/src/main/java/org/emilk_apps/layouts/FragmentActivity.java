@@ -11,9 +11,11 @@ import org.emilk_apps.layouts.fragments.SecondFragment;
 import butterknife.ButterKnife;
 
 public class FragmentActivity extends AppCompatActivity
-//implements FirstFragment.OnFragmentAButtonClickListener
+implements FirstFragment.OnFragmentAButtonClickListener
 {
 
+
+    private static final String FRAGMENT_2 = "fragment_2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +24,11 @@ public class FragmentActivity extends AppCompatActivity
         ButterKnife.bind(this);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fT = fragmentManager.beginTransaction();
-        fT.add(R.id.fragment_container, new SecondFragment());
+        fT.add(R.id.fragment_container, new SecondFragment(), FRAGMENT_2);
         fT.commit();
 
         FirstFragment fragmentA = (FirstFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_A);
+/*
 
         fragmentA.setOnFragmentAButtonClickListener(new FirstFragment.OnFragmentAButtonClickListener() {
             @Override
@@ -33,18 +36,19 @@ public class FragmentActivity extends AppCompatActivity
                 changeFragment();
             }
         });
+*/
 
     }
 
     private void changeFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fT = fragmentManager.beginTransaction();
-        fT.replace(R.id.fragment_container, new FirstFragment());
-        fT.commit();
+        SecondFragment secondFragment = (SecondFragment) getSupportFragmentManager().findFragmentByTag(FRAGMENT_2);
+        if (secondFragment!=null){
+            secondFragment.switchImage();
+        }
     }
 
- /*   @Override
+    @Override
     public void onClick() {
         changeFragment();
-    }*/
+    }
 }

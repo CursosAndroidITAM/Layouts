@@ -1,6 +1,7 @@
 package org.emilk_apps.layouts.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -40,11 +41,11 @@ public class FirstFragment extends Fragment {
      * OPTION 1:
      * We define a method (setOnFragmentAButtonClickListener) that will allow us to instantiate it.
      *
-     */
+     *//*
     public void setOnFragmentAButtonClickListener(OnFragmentAButtonClickListener listener){
        mListener = listener;
     }
-
+*/
 
     /**
      *  OPTION 2:
@@ -56,15 +57,15 @@ public class FirstFragment extends Fragment {
      *  interface for this method to work
      *
      */
-   /* @Override
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
              try {
         mListener = (OnFragmentAButtonClickListener) context;
          } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement OnArticleSelectedListener");
+            throw new ClassCastException(context.toString() + " must implement OnFragmentAButtonClickListener");
         }
-    }*/
+    }
 
 
     public FirstFragment() {
