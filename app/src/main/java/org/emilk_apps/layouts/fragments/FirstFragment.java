@@ -9,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.emilk_apps.layouts.FragmentActivity;
 import org.emilk_apps.layouts.R;
+import org.emilk_apps.service.eventbus.FragmentEvent;
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,11 +24,12 @@ public class FirstFragment extends Fragment {
 
     @BindView(R.id.fragment_first_button)
     Button fragmentFirstButton;
+    @BindView(R.id.fragment_second_button)
+    Button fragmentSecondButton;
 
 
     /**
      * Public interface that will allow us to communicate the click event to the main activity
-     *
      */
     public interface OnFragmentAButtonClickListener {
         void onClick();
@@ -48,21 +52,20 @@ public class FirstFragment extends Fragment {
 */
 
     /**
-     *  OPTION 2:
+     * OPTION 2:
      * We override the onAttach method from the fragment's life cycle so we can instantiate the
      * mListener when this fragment attaches to a context. We need the try/catch block in case we
      * forget to implement the interface in our activity
-     *
-     *  {@link org.emilk_apps.layouts.FragmentActivity} FragmentActivity should implement the
-     *  interface for this method to work
-     *
+     * <p>
+     * {@link FragmentActivity} FragmentActivity should implement the
+     * interface for this method to work
      */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-             try {
-        mListener = (OnFragmentAButtonClickListener) context;
-         } catch (ClassCastException e) {
+        try {
+            mListener = (OnFragmentAButtonClickListener) context;
+        } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + " must implement OnFragmentAButtonClickListener");
         }
     }
@@ -87,6 +90,13 @@ public class FirstFragment extends Fragment {
                                                }
 
         );
+
+        fragmentSecondButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new FragmentEvent("HOLA"));
+            }
+        });
 
         return view;
     }
