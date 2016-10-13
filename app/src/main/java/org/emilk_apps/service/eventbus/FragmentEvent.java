@@ -5,12 +5,14 @@ package org.emilk_apps.service.eventbus;
  */
 public class FragmentEvent {
     String hola;
+    Integer something;
+
 
     public FragmentEvent(String hola) {
         this.hola = hola;
     }
 
-    public String getHola() {
+    public String getString() {
         return hola;
     }
 }

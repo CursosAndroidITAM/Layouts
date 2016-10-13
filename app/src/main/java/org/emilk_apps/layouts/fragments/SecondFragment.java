@@ -49,7 +49,7 @@ public class SecondFragment extends Fragment {
 
     @Subscribe
     public void onEvent(FragmentEvent event) {
-        secondFragmentText.setText(event.getHola());
+        secondFragmentText.setText(event.getString());
     };
 
     /**
