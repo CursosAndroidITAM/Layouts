@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import org.emilk_apps.layouts.fragments.ListViewFragment;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import butterknife.ButterKnife;
 
 public class FragmentActivity extends AppCompatActivity
@@ -22,10 +25,14 @@ public class FragmentActivity extends AppCompatActivity
         ButterKnife.bind(this);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fT = fragmentManager.beginTransaction();
-        fT.add(R.id.fragment_container, new ListViewFragment(), FRAGMENT_LV);
+        fT.add(R.id.fragment_container, ListViewFragment.newInstance(getArrayList()), FRAGMENT_LV);
         fT.commit();
 
 
+    }
+
+    private ArrayList<String> getArrayList() {
+        return new ArrayList<>(Arrays.asList("Perro", "Gato","Zebra", "Ballena", "Vaca","Toro", "Tigre","Jirafa"));
     }
 
 }

@@ -66,4 +66,7 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         EventBus.getDefault().unregister(this);
     }
+
+
+
 }
